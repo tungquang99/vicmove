@@ -31,7 +31,7 @@ function Register() {
             return false;
         }
 
-        navigation('/vicmove/login');
+        navigation('/login');
     }
 
     return (
@@ -58,7 +58,7 @@ function Register() {
                 <button type="submit" className="btn btn-login">
                     đăng ký
                 </button>
-                <Link to='/vicmove/login' className="btn btn-login">
+                <Link to='/login' className="btn btn-login">
                         đăng nhập
                 </Link>
             </form>

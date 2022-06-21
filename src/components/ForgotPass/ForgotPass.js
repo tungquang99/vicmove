@@ -40,7 +40,7 @@ function ForgotPass() {
             return false;
         }
 
-        navigation('/vicmove/login');
+        navigation('/login');
     }
 
     return (
@@ -77,7 +77,7 @@ function ForgotPass() {
                 <button type="submit" className="btn btn-login">
                     Reset password
                 </button>
-                <Link to='/vicmove/login' className="btn btn-login">
+                <Link to='/login' className="btn btn-login">
                         đăng nhập
                 </Link>
             </form>

@@ -82,8 +82,8 @@ function Login() {
                     </button>
             </form>
             <div className="login-footer">
-                <Link to='/vicmove/register'>Đăng ký</Link>
-                <Link to='/vicmove/forgot-password'>Quên mật khẩu</Link>
+                <Link to='/register'>Đăng ký</Link>
+                <Link to='/forgot-password'>Quên mật khẩu</Link>
             </div>
        </>
     );

@@ -2,7 +2,7 @@
   "name": "app-the",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tungquang99.github.io/vicmove/",
+
   "dependencies": {
     "@mui/icons-material": "^5.8.4",
     "@reduxjs/toolkit": "^1.8.2",

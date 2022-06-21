@@ -22,7 +22,7 @@ function Layout() {
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         if (!getToken()) {
-            navigation('vicmove/login')
+            navigation('/login')
         }
     }, [getToken()]);
 
@@ -32,19 +32,19 @@ function Layout() {
             setIsLoading(false)
         }, 1000);
         switch (location.pathname) {
-            case '/vicmove/':
+            case '/':
                 setTitle('Trang chủ')
                 break;
-            case '/vicmove/agency':
+            case '/agency':
                 setTitle('Đại lý')
                 break;
-            case '/vicmove/system':
+            case '/system':
                 setTitle('Cấu hình hệ thống')
                 break;
-            case '/vicmove/news':
+            case '/news':
                 setTitle('Tin tức')
                 break;
-            case '/vicmove/info':
+            case '/info':
                 setTitle('User Default')
                 break;
             default:

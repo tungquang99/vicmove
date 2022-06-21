@@ -5,7 +5,7 @@ export const loginUser = async(user, dispatch, navigate) => {
 
     try {
        await dispatch(loginSuccess(user));
-        navigate('/vicmove/');
+        navigate('/');
     } catch (error) {
         await dispatch(loginError(error));
     }
