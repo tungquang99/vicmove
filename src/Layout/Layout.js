@@ -32,19 +32,19 @@ function Layout() {
             setIsLoading(false)
         }, 1000);
         switch (location.pathname) {
-            case 'vicmove/':
+            case '/vicmove/':
                 setTitle('Trang chủ')
                 break;
-            case 'vicmove/agency':
+            case '/vicmove/agency':
                 setTitle('Đại lý')
                 break;
-            case 'vicmove/system':
+            case '/vicmove/system':
                 setTitle('Cấu hình hệ thống')
                 break;
-            case 'vicmove/news':
+            case '/vicmove/news':
                 setTitle('Tin tức')
                 break;
-            case 'vicmove/info':
+            case '/vicmove/info':
                 setTitle('User Default')
                 break;
             default:
@@ -64,7 +64,7 @@ function Layout() {
     }, [])
     
     return (
-        <ContextLayout.Provider value={[users, isLoading]}>
+        <ContextLayout.Provider value={[users, isLoading, setIsLoading]}>
         <div style={{overflow: 'hidden'}}>
             {}
             <ToastContainer
@@ -105,7 +105,6 @@ function Layout() {
                     </div>
                 </div>
             }
-            {/* <Main /> */}
         </div>
         </ContextLayout.Provider>
     );
