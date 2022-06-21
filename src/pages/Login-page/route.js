@@ -8,9 +8,9 @@ import Register from '../../components/Register/Register';
 function Routers() {
 
     let element = useRoutes([
-        { path: '/login', element: getToken() ? <Navigate to="/" /> : <Login /> },
-        { path: '/register', element: getToken() ? <Navigate to="/" /> : <Register /> },
-        { path: '/forgot-password', element: getToken() ? <Navigate to="/" /> : <ForgotPass /> },
+        { path: '/vicmove/login', element: getToken() ? <Navigate to="/vicmove/" /> : <Login /> },
+        { path: '/vicmove/register', element: getToken() ? <Navigate to="/vicmove/" /> : <Register /> },
+        { path: '/vicmove/forgot-password', element: getToken() ? <Navigate to="/vicmove/" /> : <ForgotPass /> },
     ])
     return element;
 }

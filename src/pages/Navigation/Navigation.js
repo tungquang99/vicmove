@@ -6,31 +6,31 @@ function Navigation() {
     return (
         <ul className="nav">
             <li>
-                <NavLink to='/agency'>
+                <NavLink to='/vicmove/agency'>
                     <i className="fas fa-users"></i>
                     <span className="title">Agency</span>
                 </NavLink>
             </li>
             <li>
-                <NavLink to='/system' >
+                <NavLink to='/vicmove/system' >
                     <i className="fas fa-cogs"></i>
                     <span className="title">System</span>
                 </NavLink>
             </li>
             <li>
-                <NavLink to='/' >
+                <NavLink to='/vicmove/' >
                     <i className="fas fa-home"></i>
                     <span className="title">Home</span>
                 </NavLink>
             </li>
             <li>
-                <NavLink to='/news'>
+                <NavLink to='/vicmove/news'>
                     <i className="fas fa-newspaper"></i>
                     <span className="title">News</span>
                 </NavLink>
             </li>
             <li>
-                <NavLink to='/info'>
+                <NavLink to='/vicmove/info'>
                     <i className="fas fa-user"></i>
                     <span className="title">Account</span>
                 </NavLink>

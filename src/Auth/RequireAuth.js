@@ -6,6 +6,6 @@ export default function RequireAuth({ children }) {
   return getToken() ? (
     children
   ) : (
-    <Navigate to="/login" state={{ from: location }} replace />
+    <Navigate to="/vicmove/login" state={{ from: location }} replace />
   );
 }

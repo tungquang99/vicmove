@@ -22,16 +22,18 @@ function Main() {
                 </div>
             </div>
 
-            <div className='user-list'>
+            {
+                !users[1] && (<div className='user-list'>
                 {
-                    users.map((item, key) => (
+                    users[0].map((item, key) => (
                         <div className='user-item d-flex' key={key}>
                             <div className='name'>{item.name}</div>
                             <div className='phone'>{convertNumber(item.phone)}</div>
                         </div>
                     ))
                 }
-            </div>
+            </div>)
+            }
        </div>
     );
 }

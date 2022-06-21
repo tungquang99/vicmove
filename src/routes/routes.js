@@ -13,14 +13,14 @@ import Agency from '../pages/Agency/Agency';
 
 function Routers() {
     let element = useRoutes([
-        { path: "/", element: <RequireAuth><Main /></RequireAuth>},
-        { path: '/login', element: getToken() ? <Navigate to="/" /> : <Login /> },
-        { path: '/register', element: getToken() ? <Navigate to="/" /> : <Register /> },
-        { path: '/forgot-password', element: getToken() ? <Navigate to="/" /> : <ForgotPass /> },
-        { path: "/agency", element: <RequireAuth><Agency /></RequireAuth> },
-        { path: "/system", element: <RequireAuth><SystemConfig /></RequireAuth> },
-        { path: "/news", element: <RequireAuth><News /></RequireAuth> },
-        { path: "/info", element: <RequireAuth><UserInfo /></RequireAuth> },
+        { path: "vicmove/", element: <RequireAuth><Main /></RequireAuth>},
+        { path: 'vicmove/login', element: getToken() ? <Navigate to="/" /> : <Login /> },
+        { path: 'vicmove/register', element: getToken() ? <Navigate to="/" /> : <Register /> },
+        { path: 'vicmove/forgot-password', element: getToken() ? <Navigate to="/" /> : <ForgotPass /> },
+        { path: "vicmove/agency", element: <RequireAuth><Agency /></RequireAuth> },
+        { path: "vicmove/system", element: <RequireAuth><SystemConfig /></RequireAuth> },
+        { path: "vicmove/news", element: <RequireAuth><News /></RequireAuth> },
+        { path: "vicmove/info", element: <RequireAuth><UserInfo /></RequireAuth> },
     ])
     return element;
 }

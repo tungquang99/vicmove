@@ -9,12 +9,12 @@ function Agency() {
         <div className='agency'>
             <div className='user-list'>
                 {
-                    users.map((item, key) => (
-                        <div className='user-item d-flex' key={key}>
-                            <div className='name'>{item.name}</div>
-                            <div className='phone'>{convertNumber(item.phone)}</div>
-                        </div>
-                    ))
+                   !users[1] && ( users[0].map((item, key) => (
+                    <div className='user-item d-flex' key={key}>
+                        <div className='name'>{item.name}</div>
+                        <div className='phone'>{convertNumber(item.phone)}</div>
+                    </div>
+                )))
                 }
             </div>
         </div>
