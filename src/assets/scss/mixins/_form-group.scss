@@ -1,0 +1,76 @@
+@mixin _formfield {
+    .form {
+        width: 100%;
+
+        .form-group {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .form-field {
+            position: relative;
+            border-bottom: 2px solid $white;
+            margin: 20px 0;
+            width: 90%;
+
+            input{
+                width: 100%;
+                padding: 0 5px;
+                height: 40px;
+                font-size: 16px;
+                border: none;
+                background: none;
+                outline: none;
+                color: $text-color-white;
+            }
+
+            label{
+                position: absolute;
+                top: 50%;
+                left: 5px;
+                color: $text-color-white;
+                transform: translateY(-50%);
+                font-size: 16px;
+                pointer-events: none;
+                transition: .2s;
+            }
+
+            input:not(:placeholder-shown) ~ label,
+            input:focus ~ label {
+                top: -5px;
+                color: $text-color-white;
+                font-size: 14px;
+            }
+            input:not(:placeholder-shown) ~ label,
+            input:focus ~ span::before {
+                width: 100%;
+            }
+
+            .icon-eye {
+                position: absolute;
+                right: 3%;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .pass{
+                margin: -5px 0 20px 5px;
+                color: #a6a6a6;
+                cursor: pointer;
+            }
+              
+            .pass:hover{
+                text-decoration: underline;
+            }
+        }
+
+        .btn-login {
+            width: calc(100% - 45px);
+            margin: 0 auto;
+            border-radius: 40px;
+            letter-spacing: 1.5px;
+        }
+    }
+}

@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('../fonts/Roboto-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('../fonts/Roboto-Bold.ttf') format('truetype');
+}
+
+//* Color 
+$primary: #ba261a;
+$secondary-color: #e05141;
+$white: #ffffff;
+$black: #000000;
+$text-color-white: $white; 
+$text-color-black: $black; 
+$text-color-title: #00a2ff; 
+$text-form-field: gray;
+$success: green;
+$block: #fb0d3c;
+$info: #008cff;
+$warning: #ffa600;
+
+$font-size-default: 16px;
+$font-size-medium: 20px;
+$font-size-big: 32px;
+
+// font type
+$font-regular: 'Roboto-Regular';
+$font-medium: 'Roboto-Medium';
+$font-bold: 'Roboto-Bold';
+
+.icon {
+    &::before {
+        color: $white;
+    };
+}
+
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-flex {
+    display: flex;
+}

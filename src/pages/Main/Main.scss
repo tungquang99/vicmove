@@ -1,0 +1,90 @@
+@import '../../assets/scss/default-theme';
+
+.main {
+    color: $white;
+    &-header {
+        background-color: $secondary-color;
+        display: flex;
+        align-items: center;
+        height: 50px;
+        padding: 0 24px;
+        position: relative;
+       
+
+        .icon {
+            font-size: 18px;
+        }
+
+        .title {
+            margin: 0 auto;
+            font-weight: 600;
+          
+        }
+
+        .fa-sign-out-alt {
+            position: absolute;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    &-body {
+        height: calc(100vh - 100px);
+        color: $text-color-black;
+        padding: 24px 16px;
+        border-top: 1px solid $white;
+    }
+
+    .banner {
+        max-height: 300px;
+        background: $secondary-color;
+        margin: -24px -16px;
+        padding: 8px 16px;
+        color: $white;
+        text-align: center;
+
+        .logo {
+           width: 265px;
+        }
+    }
+
+    .user {
+        display: flex;
+        justify-content: space-between;
+
+        .name, .phone {
+            text-align: left;
+            margin-top: 16px;
+
+            .title {
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 14px;
+            }
+        }
+
+        &-list {
+            margin-top: 60px;
+            height: calc(100vh - 340px);
+            max-height: calc(100vh - 340px);
+            overflow: auto;
+        }
+
+        &-item {
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+            box-shadow:  1px 4px 6px rgba($color: #000000, $alpha: .3);
+            padding: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            .name {
+                width: 200px;
+                font-weight: bold;
+                padding-bottom: 8px;
+            }
+        }
+
+    }
+}

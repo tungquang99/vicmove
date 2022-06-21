@@ -1,0 +1,13 @@
+@import '../../assets/scss/default-theme';
+
+.system {
+    label {
+        color: $text-form-field !important;
+    }
+    
+    .form-field {
+        width: 100% !important;
+        border-bottom: 1px solid #265426 !important;
+        margin: 12px 0 !important;
+    }
+}

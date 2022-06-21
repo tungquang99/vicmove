@@ -1,0 +1,82 @@
+:root {
+    --bg-body: #dff9fb;
+--bg-nav: ;
+--color-nav: #644c89;
+--color-nav-active: #fff;
+}
+
+@import '../../assets/scss/default-theme';
+
+#filter-svg {
+    display: none;
+}
+
+.main-footer {
+
+    .nav {
+        position: relative;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+        background-color: $secondary-color;
+        height: 50px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        filter: url('#goo')
+        /* border-bottom-right-radius: 20px; */
+    }
+    
+    .nav li {
+        margin-bottom: 0 !important;
+    }
+    
+    .nav li a {
+        text-decoration: none;
+        color: $white;
+        width: 60px;
+        height: 100%;
+        display: inline-grid;
+        place-items: center;
+        font-size: 24px;
+        z-index: 1;
+        position: relative;
+        overflow: hidden;
+        align-self: center;
+    }
+    
+    .nav li a .title {
+        display: none;
+    }
+    
+    .nav li a:hover {
+        color: var(--bg-body);
+    }
+    
+    .nav li a.active {
+        color: $white;
+        transform: translateY(-40%);
+        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        background-color: $secondary-color;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        padding: 8px;
+    }
+    
+    .nav li a.active .title {
+        display: block;
+        font-size: 14px;
+    }
+    
+    @keyframes zoom {
+        0% {
+            width: 0px;
+            height: 0px;
+            opacity: 0.2;
+        }
+        100% {
+            width: 1500px;
+            height: 1500px;
+            opacity: 0;
+        }
+    }
+}

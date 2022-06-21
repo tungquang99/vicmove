@@ -1,0 +1,37 @@
+@import '../../assets/scss/default-theme';
+
+.login {
+    background: url('../../assets/images/bg.png') no-repeat;
+    height: 100vh;
+    padding: 40px;
+    padding-top: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    &-header {
+        .logo {
+            img {
+                width: 300px;
+            }
+        }
+    }
+
+    &-form {
+        .btn-login, a {
+            width: calc(100% - 45px);
+            margin: 0 auto;
+            border-radius: 40px;
+            letter-spacing: 1.5px;
+        }
+    
+        a {
+            color: $secondary-color;
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 16px !important;
+        }
+    }
+
+}

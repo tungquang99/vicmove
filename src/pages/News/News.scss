@@ -1,0 +1,22 @@
+@import '../../assets/scss/default-theme';
+
+.new {
+    &-item {
+        width: 100%;
+        padding: 16px 8px;
+        border-radius: 8px;
+        box-shadow: 1px 4px 6px rgba($color: #000000, $alpha: .2);
+        margin-bottom: 16px;
+    }
+
+    &-title {
+        color: $text-color-title;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    &-description {
+        font-size: 14px;
+        margin-top: 8px;
+    }
+}
