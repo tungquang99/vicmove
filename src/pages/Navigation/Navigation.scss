@@ -32,6 +32,7 @@
     
     .nav li a {
         text-decoration: none;
+        background-color: $secondary-color;
         color: $white;
         width: 60px;
         height: 100%;
@@ -42,6 +43,9 @@
         position: relative;
         overflow: hidden;
         align-self: center;
+        
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
     }
     
     .nav li a .title {
@@ -54,12 +58,9 @@
     
     .nav li a.active {
         color: $white;
-        transform: translateY(-40%);
-        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        background-color: $secondary-color;
-        border-top-left-radius: 50%;
-        border-top-right-radius: 50%;
         padding: 8px;
+        transform: translateY(-40%);
+        transition: transform .2s ;
     }
     
     .nav li a.active .title {
