@@ -30,7 +30,7 @@ function Login() {
             return false;
         }
 
-        if (username === 'admintest' && password === '12345678') {
+        if (username.toLocaleLowerCase() === 'admintest' && password.toLocaleLowerCase() === '12345678') {
             const users = {
                 user: [
                    {
