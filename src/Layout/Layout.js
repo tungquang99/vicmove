@@ -65,7 +65,7 @@ function Layout() {
     
     return (
         <ContextLayout.Provider value={[users, isLoading, setIsLoading]}>
-        <div style={{overflow: 'hidden', width: '100vw'}}>
+        <div style={{overflow: 'hidden'}}>
             {}
             <ToastContainer
                 position="top-center"
@@ -81,7 +81,7 @@ function Layout() {
                 
             {!getToken() && <LoginPage /> } 
             { getToken() && 
-                <div className='main' style={{ width: '100vw' }}>
+                <div className='main'>
                     {isLoading && <Loading />}
                     <div className='main-header'>
                         { title !== 'Trang chủ' && <i className="icon fas fa-chevron-left" onClick={() => navigation(-1)}></i>}
