@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Register.scss'
 import { IMAGE } from './../../contants/IMAGE';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { useToggle } from './../../hooks/useToggle';
+import { getAcounts } from '../../api/account';
+import { ContextLayout } from '../../Layout/Layout';
 
 
 
@@ -14,6 +16,7 @@ function Register() {
     const dispatch = useDispatch();
     const navigation = useNavigate();
     const [isTextChanged, setIsTextChanged] = useToggle();
+    const accounts = useContext(ContextLayout)[3];
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -35,29 +38,43 @@ function Register() {
             username: username,
             password: password
         }
-
-        fetch('https://62b42d8a530b26da4cb832bf.mockapi.io/user', {
-            method: 'POST', // or 'PUT'
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-            })
-            .then(response => response.json())
-            .then((data) => {
-                navigation('/login')
-            })
-            .catch((error) => {
-                toast.error(error, {
-                    position: 'top-center',
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
+        const checkAccount  = accounts.some(item => item.username.toLocaleLowerCase() === username.toLocaleLowerCase());
+        if (!checkAccount) {
+            fetch('https://62b42d8a530b26da4cb832bf.mockapi.io/user', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+                })
+                .then(response => response.json())
+                .then((data) => {
+                    getAcounts()
+                    navigation('/login')
+                })
+                .catch((error) => {
+                    toast.error(error, {
+                        position: 'top-center',
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
                 });
+        } else {
+            toast.error('Username already exists', {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
             });
+        }
+
     }
 
     return (

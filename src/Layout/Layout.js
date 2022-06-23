@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import LoginPage from './../pages/Login-page/LoginPage';
 import { toast, ToastContainer } from 'react-toastify';
-import { getToken } from '../Auth/getToken';
+import { getToken, getUser } from '../Auth/getToken';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Routers from './../routes/routes';
@@ -10,6 +10,7 @@ import { logout } from '../Auth/authSlice';
 import Navigation from '../pages/Navigation/Navigation';
 import { usersList } from './../contants/data';
 import Loading from '../components/Loading/Loading';
+import { getAcounts } from '../api/account';
 
 export const ContextLayout = createContext();
 
@@ -23,25 +24,21 @@ function Layout() {
     const [isLoading, setIsLoading] = useState(true);
     const username = localStorage.getItem('username')
     useEffect(() => {
-        fetch('https://62b42d8a530b26da4cb832bf.mockapi.io/user', {
-            method: 'GET', // or 'PUT'
-            })
-            .then(response => response.json())
-            .then((data) => {
-                setAccounts(data);
-            })
-            .catch((error) => {
-                toast.error(error, {
-                    position: 'top-center',
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
+        getAcounts().then((data) => {
+            setAccounts(data)
+        })
+        .catch((error) => {
+            toast.error(error, {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
             });
-    }, [])
+        });
+    }, [location.pathname])
     
     useEffect(() => {
         if (!getToken()) {
