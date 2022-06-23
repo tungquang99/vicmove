@@ -36,7 +36,7 @@ function Register() {
 
         const data = {
             username: username,
-            password: password
+            password: window.btoa(password) 
         }
         const checkAccount  = accounts.some(item => item.username.toLocaleLowerCase() === username.toLocaleLowerCase());
         if (!checkAccount) {

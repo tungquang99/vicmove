@@ -1,7 +1,11 @@
 @import '../../assets/scss/default-theme';
 
 .main {
-    color: $white;
+    color: $white !important;
+    a.nav-link {
+        text-decoration: none;
+        color: #000000 !important;
+    }
     &-header {
         background-color: $secondary-color;
         display: flex;
@@ -31,7 +35,7 @@
 
     &-body {
         height: calc(100vh - 100px);
-        color: $text-color-black;
+        color: $text-color-black !important;
         padding: 24px 16px;
         border-top: 1px solid $white;
     }

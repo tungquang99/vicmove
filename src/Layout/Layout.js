@@ -3,7 +3,7 @@ import LoginPage from './../pages/Login-page/LoginPage';
 import { toast, ToastContainer } from 'react-toastify';
 import { getToken, getUser } from '../Auth/getToken';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Routers from './../routes/routes';
 import { useLocation } from 'react-router-dom';
 import { logout } from '../Auth/authSlice';
@@ -84,7 +84,7 @@ function Layout() {
     }, [])
     
     return (
-        <ContextLayout.Provider value={[users, isLoading, setIsLoading, accounts, username]}>
+        <ContextLayout.Provider value={[users, isLoading, setIsLoading, accounts, username, setTitle]}>
         <div style={{overflow: 'hidden'}}>
             {}
             <ToastContainer

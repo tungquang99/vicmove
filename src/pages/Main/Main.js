@@ -3,6 +3,7 @@ import './Main.scss';
 import { IMAGE } from './../../contants/IMAGE';
 import { convertNumber } from './../../shared/convertNumber';
 import { ContextLayout } from '../../Layout/Layout';
+import { NavLink } from 'react-router-dom';
 
 function Main() {
     const users = useContext(ContextLayout)
@@ -27,10 +28,10 @@ function Main() {
                 !users[1] && (<div className='user-list'>
                 {
                     users[0].map((item, key) => (
-                        <div className='user-item d-flex' key={key}>
+                        <NavLink to={`/agency/${item.id}`} className='user-item d-flex nav-link' key={key}>
                             <div className='name'>{item.name}</div>
                             <div className='phone'>{convertNumber(item.phone)}</div>
-                        </div>
+                        </NavLink>
                     ))
                 }
             </div>)
