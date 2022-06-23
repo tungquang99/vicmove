@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Login.scss'
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { loginUser } from './../../api/user';
 import { toast } from 'react-toastify';
 import { useToggle } from './../../hooks/useToggle';
+import { ContextLayout } from '../../Layout/Layout';
 
 
 function Login() {
@@ -14,7 +15,7 @@ function Login() {
     const dispatch = useDispatch();
     const navigation = useNavigate();
     const [isTextChanged, setIsTextChanged] = useToggle();
-
+    const accounts = useContext(ContextLayout)[3];
     const handleLogin = (e) => {
         e.preventDefault();
         if (username === '' || password === '') {
@@ -45,6 +46,21 @@ function Login() {
             return true;
         }
 
+        const checkAccount  = accounts.some(item => item.username.toLocaleLowerCase() === username.toLocaleLowerCase() &&  item.password.toLocaleLowerCase() === password.toLocaleLowerCase());
+        if (checkAccount) {
+            const users = {
+                user: [
+                   {
+                    user: username,
+                    token: 'abcdef'
+                   }
+                ],
+                loading: false,
+                error: ''
+            }
+            loginUser(users, dispatch, navigation);
+            return true;
+        }
         toast.error('Username or password is incorrect', {
             position: 'top-center',
             autoClose: 5000,

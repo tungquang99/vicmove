@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import LoginPage from './../pages/Login-page/LoginPage';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import { getToken } from '../Auth/getToken';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -17,9 +17,32 @@ function Layout() {
     const navigation = useNavigate()
     const location = useLocation();
     const dispatch = useDispatch();
+    const [accounts, setAccounts] = useState([]);
     const [title, setTitle] = useState('Trang chủ')
     const [users, setUsers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const username = localStorage.getItem('username')
+    useEffect(() => {
+        fetch('https://62b42d8a530b26da4cb832bf.mockapi.io/user', {
+            method: 'GET', // or 'PUT'
+            })
+            .then(response => response.json())
+            .then((data) => {
+                setAccounts(data);
+            })
+            .catch((error) => {
+                toast.error(error, {
+                    position: 'top-center',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            });
+    }, [])
+    
     useEffect(() => {
         if (!getToken()) {
             navigation('/login')
@@ -64,7 +87,7 @@ function Layout() {
     }, [])
     
     return (
-        <ContextLayout.Provider value={[users, isLoading, setIsLoading]}>
+        <ContextLayout.Provider value={[users, isLoading, setIsLoading, accounts, username]}>
         <div style={{overflow: 'hidden'}}>
             {}
             <ToastContainer

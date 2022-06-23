@@ -31,7 +31,33 @@ function Register() {
             return false;
         }
 
-        navigation('/login');
+        const data = {
+            username: username,
+            password: password
+        }
+
+        fetch('https://62b42d8a530b26da4cb832bf.mockapi.io/user', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then((data) => {
+                navigation('/login')
+            })
+            .catch((error) => {
+                toast.error(error, {
+                    position: 'top-center',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            });
     }
 
     return (

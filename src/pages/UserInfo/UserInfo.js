@@ -4,7 +4,7 @@ import './UserInfo.scss'
 import { convertNumber } from './../../shared/convertNumber';
 
 function UserInfo() {
-    const users = useContext(ContextLayout)
+    const users = useContext(ContextLayout);
     return (
         <div className='user-info'>
             {
@@ -12,11 +12,11 @@ function UserInfo() {
                     <ul>
                     <li className="d-flex">
                         <span className='title'>Tên đăng nhập:</span>
-                        <span className="user">Admintest</span>
+                        <span className="user">{users[4]}</span>
                     </li>
                     <li className="d-flex">
                         <span className='title'>Số điện thoại:</span>
-                        <span>{convertNumber('0395686343')}</span>
+                        <span>{users[4] === 'admintest' ? convertNumber('0395686343') : ''}</span>
                     </li>
                     <li className="d-flex">
                         <span className='title'>Ngày tạo:</span>

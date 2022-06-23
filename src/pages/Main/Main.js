@@ -6,6 +6,7 @@ import { ContextLayout } from '../../Layout/Layout';
 
 function Main() {
     const users = useContext(ContextLayout)
+   
     return (
        <div className=''>
             <div className='banner'>
@@ -13,11 +14,11 @@ function Main() {
                 <div className='user'>
                     <div className='name'>
                         <div className='title'>Tài khoản</div>
-                        <div>admintest</div>
+                        <div>{users[4]}</div>
                     </div>
                     <div className='phone'>
                         <div className='title'>Số điện thoại</div>
-                        <div>{convertNumber('0395686343')}</div>
+                        <div>{users[4] === 'admintest' ?  convertNumber('0395686343') : ''}</div>
                     </div>
                 </div>
             </div>
