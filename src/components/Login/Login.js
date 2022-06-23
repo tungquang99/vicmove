@@ -46,7 +46,7 @@ function Login() {
             return true;
         }
 
-        const checkAccount  = accounts.some(item => item.username.toLocaleLowerCase() === username.toLocaleLowerCase() &&  item.password.toLocaleLowerCase() === password.toLocaleLowerCase());
+        const checkAccount  = accounts.some(item => item.username.toLocaleLowerCase() === username.toLocaleLowerCase() &&  item.password === password);
         if (checkAccount) {
             const users = {
                 user: [
