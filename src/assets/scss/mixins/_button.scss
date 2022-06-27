@@ -16,5 +16,10 @@
         &-primary {
             color: $primary;
         }
+
+        &-cancel {
+            background-color: #b1b2b3  !important;
+            color: $white !important;
+        }
     }
 }

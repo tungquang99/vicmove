@@ -11,6 +11,7 @@ import News from '../pages/News/News';
 import UserInfo from '../pages/UserInfo/UserInfo';
 import Agency from '../pages/Agency/Agency';
 import UserItem from '../pages/UserInfo/UserItem';
+import Map from '../components/Map/Map';
 
 function Routers() {
     let element = useRoutes([
@@ -24,6 +25,7 @@ function Routers() {
         { path: "system", element: <RequireAuth><SystemConfig /></RequireAuth> },
         { path: "news", element: <RequireAuth><News /></RequireAuth> },
         { path: "info", element: <RequireAuth><UserInfo /></RequireAuth> },
+        { path: "location", element: <RequireAuth><Map /></RequireAuth> },
         { path: "/agency/:agencyId", element: <RequireAuth><UserItem /></RequireAuth> },
     ])
     return element;

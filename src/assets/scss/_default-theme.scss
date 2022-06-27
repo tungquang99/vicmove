@@ -8,5 +8,9 @@
     box-sizing: border-box;
 }
 
+.text-cursor {
+    cursor: pointer;
+}
+
 @include _button($white, $secondary-color);
 @include _formfield();
