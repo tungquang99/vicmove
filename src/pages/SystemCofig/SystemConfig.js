@@ -3,6 +3,7 @@ import './systemConfig.scss';
 import Loading from './../../components/Loading/Loading';
 import { ContextLayout } from './../../Layout/Layout';
 import { Button, Modal } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function SystemConfig() {
     const [user, isloading, setIsLoading] = useContext(ContextLayout)
@@ -67,7 +68,7 @@ function SystemConfig() {
                 </Modal.Body>
                 <Modal.Footer>
                     <button className='btn btn-cancel' onClick={handleClose}>Hủy</button>
-                    <a href='/#/location' target="_bank" className='btn btn-lock'>Đồng ý</a>
+                    <Link to='/location' target="_bank" className='btn btn-lock'>Đồng ý</Link>
                 </Modal.Footer>
             </Modal>
         </div>
