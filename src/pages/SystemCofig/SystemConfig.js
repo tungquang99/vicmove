@@ -68,7 +68,7 @@ function SystemConfig() {
                 </Modal.Body>
                 <Modal.Footer>
                     <button className='btn btn-cancel' onClick={handleClose}>Hủy</button>
-                    <Link to='/location' target="_bank" className='btn btn-lock'>Đồng ý</Link>
+                    <Link to='/location' className='btn btn-lock'>Đồng ý</Link>
                 </Modal.Footer>
             </Modal>
         </div>
