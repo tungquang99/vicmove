@@ -12,5 +12,9 @@
     cursor: pointer;
 }
 
+a:hover {
+    color: $white !important;
+}
+
 @include _button($white, $secondary-color);
 @include _formfield();
