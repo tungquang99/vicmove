@@ -1,50 +1,78 @@
+import React, { useEffect, useState } from "react";
+import Countdown from "react-countdown";
+import { Link, useNavigate } from "react-router-dom";
+import "./map.scss";
 
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import './map.scss';
+
+
+const renderer = ({ hours, minutes, seconds, completed }) => {
+  if (completed) {
+    // Render a complete state
+  } else {
+    // Render a countdown
+    return (
+      <div className="text-map">
+        Vị trí của bạn được chia sẻ còn lại trong:{" "}
+        <span>
+          {hours < 10 ? '0' + hours : hours}:{minutes < 10 ? '0' + minutes : minutes}:{seconds < 10 ? '0' + seconds : seconds}
+        </span>{" "}
+        <Link to="/system" className="btn btn-lock" onClick={() => localStorage.removeItem("end_date")}>
+          Dừng chia sẻ
+        </Link>
+      </div>
+    );
+  }
+};
+
+const getLocalStorageValue = (s) => localStorage.getItem(s);
 
 function Map() {
-  const [seconds, setSeconds] = useState(0)
-  const [minutes, setMinutes] = useState(59)
-  const [hourse, setHours] = useState(2)
+  const [data, setData] = useState(
+    { date: Date.now(), delay: 7200000 } //2 hours
+  );
+  const wantedDelay = 7200000; 
+  const navigation = useNavigate();
 
-
-
-  function updateTime() {
-    if (minutes === 0 && seconds === 0) {
-      //reset
-      setSeconds(0);
-      setMinutes(59);
-    }
-    else {
-      if (seconds === 0) {
-        setMinutes(minutes => minutes - 1);
-        setSeconds(59);
-      } else if (minutes === 0) {
-        setHours(hourse => hourse - 1);
-      }
-      else {
-        setSeconds(seconds => seconds - 1);
-      }
-    }
-  }
-
-
-
+  //Code runs only one time after each reloading
   useEffect(() => {
-    const token = setTimeout(updateTime, 1000)
+    const savedDate = getLocalStorageValue("end_date");
+    if (savedDate != null && !isNaN(savedDate)) {
+      const currentTime = Date.now();
+      const delta = parseInt(savedDate, 10) - currentTime;
 
-    return function cleanUp() {
-      clearTimeout(token);
+      //Do you reach the end?
+      if (delta > wantedDelay) {
+        //Yes we clear uour saved end date
+        if (localStorage.getItem("end_date").length > 0)
+          localStorage.removeItem("end_date");
+      } else {
+        //No update the end date with the current date
+        setData({ date: currentTime, delay: delta });
+      }
     }
-  })
+  }, []);
 
-    return (
-        <div className='img-map'>
-          
-            <div className='text-map'>Vị trí của bạn được chia sẻ còn lại trong: {hourse < 10 ? '0' + hourse : hourse}:{minutes < 10 ? '0' + minutes : minutes}:{seconds < 10 ? '0' + seconds : seconds} <Link to='/system' className='btn btn-lock'>Dừng chia sẻ</Link></div>
-        </div>
-    );
+  return (
+    <div className="img-map">
+      <Countdown
+        date={data.date + data.delay}
+        renderer={renderer}
+        onStart={(delta) => {
+          //Save the end date
+          if (localStorage.getItem("end_date") == null)
+            localStorage.setItem(
+              "end_date",
+              JSON.stringify(data.date + data.delay)
+            );
+        }}
+        onComplete={() => {
+          if (localStorage.getItem("end_date") != null)
+            localStorage.removeItem("end_date");
+            navigation('/system')
+        }}
+      />
+    </div>
+  );
 }
 
 export default Map;

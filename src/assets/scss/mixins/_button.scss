@@ -1,17 +1,17 @@
 @mixin _button($color, $primary) {
     .btn {
         height: 38px; 
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: center;
-        cursor: pointer;
+        cursor: pointer !important;
         text-transform: uppercase;
-        background-color: $white;
-        border: none;
-        border-radius: 12px;
-        color: $primary;
+        background-color: $white !important;
+        border: none !important;
+        border-radius: 12px !important;
+        color: $primary !important;
         font-family: $font-medium;
-        font-size: $font-size-default;
+        font-size: $font-size-default !important;
     
         &-primary {
             color: $primary;
@@ -20,6 +20,16 @@
         &-cancel {
             background-color: #b1b2b3  !important;
             color: $white !important;
+        }
+
+        &-lock {
+            text-transform: initial !important;
+            box-shadow: 1px 2px 2px rgba($color: #000000, $alpha: .3);
+            padding: 8px 16px;
+            border-radius: 18px;
+            background-color: $primary !important;
+            color: $white !important;
+            display: inline-block !important;
         }
     }
 }
