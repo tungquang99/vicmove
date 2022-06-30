@@ -85,7 +85,7 @@ function Layout() {
     
     return (
         <ContextLayout.Provider value={[users, isLoading, setIsLoading, accounts, username, setTitle]}>
-        <div >
+        <div style={{overflow: 'hidden'}}>
             {}
             <ToastContainer
                 position="top-center"
