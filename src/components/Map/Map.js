@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Countdown from "react-countdown";
 import { Link, useNavigate } from "react-router-dom";
 import "./map.scss";
@@ -53,24 +53,26 @@ function Map() {
   }, []);
 
   return (
-    <div className="img-map">
-      <Countdown
-        date={data.date + data.delay}
-        renderer={renderer}
-        onStart={(delta) => {
-          //Save the end date
-          if (localStorage.getItem("end_date") == null)
-            localStorage.setItem(
-              "end_date",
-              JSON.stringify(data.date + data.delay)
-            );
-        }}
-        onComplete={() => {
-          if (localStorage.getItem("end_date") != null)
-            localStorage.removeItem("end_date");
-            navigation('/system')
-        }}
-      />
+    <div className="map">
+        <Countdown
+          date={data.date + data.delay}
+          renderer={renderer}
+          onStart={(delta) => {
+            //Save the end date
+            if (localStorage.getItem("end_date") == null)
+              localStorage.setItem(
+                "end_date",
+                JSON.stringify(data.date + data.delay)
+              );
+          }}
+          onComplete={() => {
+            if (localStorage.getItem("end_date") != null)
+              localStorage.removeItem("end_date");
+              navigation('/system')
+          }}
+        />
+      <div className="img-map">
+      </div>
     </div>
   );
 }

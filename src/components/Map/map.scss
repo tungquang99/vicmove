@@ -2,13 +2,17 @@
     transform: translate(-69px, 52px) translate(38%, -44%) translate(116px, -500px) !important
 }
 
+.map {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
 .text-map {
     font-size: 18px;
     font-weight: bold;
-    position: absolute;
-    top: 118px;
-    left: 42px;
-    width: 300px;
+    padding-bottom: 10px;
 }
 
 .img-map {
@@ -16,4 +20,22 @@
     width: 100%;
     height: 100%;
     background-size: cover;
+    background-position: center;
+}
+
+@media screen and (min-width: 680px) {
+    .map {
+        background-color: #E9EAEF;
+    }
+
+    .text-map {
+        background: #ffffff;
+    }
+
+    .img-map {
+        width: 95%;
+        height: 45vh;
+        display: flex;
+        align-self: center;
+    }
 }
