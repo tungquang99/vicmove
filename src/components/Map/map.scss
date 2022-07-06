@@ -7,35 +7,35 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
+    background-color: #E9EAEF;
 }
 
 .text-map {
     font-size: 18px;
     font-weight: bold;
     padding-bottom: 10px;
+    background: #ffffff;
 }
 
 .img-map {
     background: url('../../assets/images/map.PNG') no-repeat;
     width: 100%;
-    height: 100%;
-    background-size: cover;
+    height: 66.7%;
     background-position: center;
 }
 
-@media screen and (min-width: 680px) {
+@media screen and (max-width: 680px) {
     .map {
-        background-color: #E9EAEF;
+        background-color: #EDEEF3;
     }
+}
 
-    .text-map {
-        background: #ffffff;
-    }
-
+@media screen and (min-width: 680px) {
     .img-map {
         width: 95%;
         height: 45vh;
         display: flex;
         align-self: center;
+        background-size: cover;
     }
 }
