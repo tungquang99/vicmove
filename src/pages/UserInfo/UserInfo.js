@@ -2,9 +2,18 @@ import React, { useContext } from 'react';
 import { ContextLayout } from '../../Layout/Layout';
 import './UserInfo.scss'
 import { convertNumber } from './../../shared/convertNumber';
+import { logout } from '../../Auth/authSlice';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 function UserInfo() {
     const users = useContext(ContextLayout);
+    const navigation = useNavigate()
+    const dispatch = useDispatch();
+    const handleLogout = () => {
+        dispatch(logout())
+        navigation('vicmove/login');
+    }
     return (
         <div className='user-info'>
             {
@@ -37,7 +46,7 @@ function UserInfo() {
                 </ul>
                 )
             }
-            <button className="btn btn-lock">Khóa tài khoản</button>
+            <button className="btn btn-lock" onClick={handleLogout}>Đăng xuất</button>
         </div>
     );
 }

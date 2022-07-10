@@ -21,6 +21,10 @@
         .status {
             color: $info;
             font-weight: bold;
+
+            &--lock {
+                color: rgb(190, 20, 54);
+            }
         }
     
     }
