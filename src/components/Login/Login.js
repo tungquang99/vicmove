@@ -31,21 +31,6 @@ function Login() {
             return false;
         }
 
-        if (username.toLocaleLowerCase() === 'admintest' && password.toLocaleLowerCase() === '12345678') {
-            const users = {
-                user: [
-                   {
-                    user: username,
-                    token: 'abcdef'
-                   }
-                ],
-                loading: false,
-                error: ''
-            }
-            loginUser(users, dispatch, navigation);
-            return true;
-        }
-
         const checkAccount  = accounts.some(item => item.username.toLocaleLowerCase() === username.toLocaleLowerCase() && window.atob(item.password) === password);
         if (checkAccount) {
             const users = {
