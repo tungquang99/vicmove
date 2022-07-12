@@ -1,6 +1,10 @@
 @import '../../assets/scss/default-theme';
 
 .user-info {
+    .mr-2 {
+        margin-right: 8px;
+    }
+
     ul {
         li {
             flex-wrap: wrap;
